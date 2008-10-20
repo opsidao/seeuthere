@@ -21,7 +21,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface seeUthereAppDelegate : NSObject <UIApplicationDelegate,CLLocationManagerDelegate> {
+@interface seeUthereAppDelegate : NSObject <UIApplicationDelegate,CLLocationManagerDelegate,UIWebViewDelegate> {
     UIWindow *window;
     MapView *mapView;
 	UIToolbar *toolbar;
@@ -36,6 +36,7 @@
 @property (nonatomic, retain) UIBarButtonItem *locateMeButton;
 @property (nonatomic, retain) UIBarButtonItem *sendButton;
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error;
 

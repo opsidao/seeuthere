@@ -21,7 +21,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface seeUthereAppDelegate : NSObject <UIApplicationDelegate> {
+@interface seeUthereAppDelegate : NSObject <UIApplicationDelegate,CLLocationManagerDelegate> {
     UIWindow *window;
     MapView *mapView;
 	UIToolbar *toolbar;

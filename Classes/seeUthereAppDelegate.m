@@ -38,6 +38,9 @@
 	locateMeButton = [[UIBarButtonItem alloc] initWithTitle:@"Locate me!" style:UIBarButtonItemStyleBordered target:self action:@selector(locateMe:)];
 	sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleBordered target:self action:@selector(send:)];
 	
+	UIWebView *mapAsBase = (UIWebView *) (mapView.mMapWebView);
+	mapAsBase.delegate = self;
+	
 	locateMeButton.width = 150;
 	sendButton.width = 150;
 	
@@ -48,6 +51,13 @@
 	[window addSubview:toolbar];
 	// Show window
 	[window makeKeyAndVisible];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+	[mapView.mMapWebView moveByDx:1 dY:1];
+	UIWebView *mapAsBase = (UIWebView *) (mapView.mMapWebView);
+	mapAsBase.delegate = nil;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
